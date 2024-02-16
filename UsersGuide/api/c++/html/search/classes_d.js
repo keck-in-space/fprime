@@ -1,23 +1,11 @@
 var searchData=
 [
-  ['parambuffer_2231',['ParamBuffer',['../class_fw_1_1_param_buffer.html',1,'Fw']]],
-  ['paramstring_2232',['ParamString',['../class_fw_1_1_param_string.html',1,'Fw']]],
-  ['passivecomponentbase_2233',['PassiveComponentBase',['../class_fw_1_1_passive_component_base.html',1,'Fw']]],
-  ['passiverategroup_2234',['PassiveRateGroup',['../class_svc_1_1_passive_rate_group.html',1,'Svc']]],
-  ['passiverategroupimpl_2235',['PassiveRateGroupImpl',['../class_passive_rate_group_impl.html',1,'']]],
-  ['passivetest_2236',['PassiveTest',['../class_passive_test.html',1,'']]],
-  ['pathname_2237',['PathName',['../class_fw_1_1_file_packet_1_1_path_name.html',1,'Fw::FilePacket']]],
-  ['pingentry_2238',['PingEntry',['../struct_svc_1_1_health_impl_1_1_ping_entry.html',1,'Svc::HealthImpl']]],
-  ['polydbimpl_2239',['PolyDbImpl',['../class_svc_1_1_poly_db_impl.html',1,'Svc']]],
-  ['polytype_2240',['PolyType',['../class_fw_1_1_poly_type.html',1,'Fw']]],
-  ['portbase_2241',['PortBase',['../class_fw_1_1_port_base.html',1,'Fw']]],
-  ['portstringtype_2242',['PortStringType',['../struct_fpp_test_1_1_types_1_1_port_string_type.html',1,'FppTest::Types']]],
-  ['portstringtypes_2243',['PortStringTypes',['../struct_fpp_test_1_1_types_1_1_port_string_types.html',1,'FppTest::Types']]],
-  ['posixtime_2244',['PosixTime',['../class_svc_1_1_posix_time.html',1,'Svc']]],
-  ['primitivestructtest_2245',['PrimitiveStructTest',['../class_primitive_struct_test.html',1,'']]],
-  ['primitivetypes_2246',['PrimitiveTypes',['../struct_fpp_test_1_1_types_1_1_primitive_types.html',1,'FppTest::Types']]],
-  ['priorityqueue_2247',['PriorityQueue',['../struct_os_1_1_priority_queue.html',1,'Os']]],
-  ['prmdbimpl_2248',['PrmDbImpl',['../class_svc_1_1_prm_db_impl.html',1,'Svc']]],
-  ['prmstringtype_2249',['PrmStringType',['../struct_fpp_test_1_1_types_1_1_prm_string_type.html',1,'FppTest::Types']]],
-  ['prmstringtypes_2250',['PrmStringTypes',['../struct_fpp_test_1_1_types_1_1_prm_string_types.html',1,'FppTest::Types']]]
+  ['queue_4079',['Queue',['../class_os_1_1_queue.html',1,'Os::Queue'],['../class_types_1_1_queue.html',1,'Types::Queue']]],
+  ['queueconfigurationentry_4080',['QueueConfigurationEntry',['../struct_svc_1_1_com_queue_1_1_queue_configuration_entry.html',1,'Svc::ComQueue']]],
+  ['queueconfigurationtable_4081',['QueueConfigurationTable',['../struct_svc_1_1_com_queue_1_1_queue_configuration_table.html',1,'Svc::ComQueue']]],
+  ['queuedcomponentbase_4082',['QueuedComponentBase',['../class_fw_1_1_queued_component_base.html',1,'Fw']]],
+  ['queuehandle_4083',['QueueHandle',['../class_os_1_1_queue_handle.html',1,'Os']]],
+  ['queueregistry_4084',['QueueRegistry',['../class_os_1_1_queue_registry.html',1,'Os']]],
+  ['queuestring_4085',['QueueString',['../class_os_1_1_queue_string.html',1,'Os']]],
+  ['queuetype_4086',['QueueType',['../class_svc_1_1_queue_type.html',1,'Svc']]]
 ];

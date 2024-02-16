@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bufferaccumulator_4294',['BufferAccumulator',['../md__svc__buffer_accumulator_docs__buffer_accumulator.html',1,'']]]
+  ['communication_20adapter_20interface_7853',['Communication Adapter Interface',['../md_docs__design_communication_adapter_interface.html',1,'']]]
 ];

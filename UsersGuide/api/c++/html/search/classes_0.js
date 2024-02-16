@@ -1,16 +1,20 @@
 var searchData=
 [
-  ['activecomponentbase_2100',['ActiveComponentBase',['../class_fw_1_1_active_component_base.html',1,'Fw']]],
-  ['activecomponentexitserializablebuffer_2101',['ActiveComponentExitSerializableBuffer',['../class_fw_1_1_active_component_exit_serializable_buffer.html',1,'Fw']]],
-  ['activeloggerimpl_2102',['ActiveLoggerImpl',['../class_svc_1_1_active_logger_impl.html',1,'Svc']]],
-  ['activerategroup_2103',['ActiveRateGroup',['../class_svc_1_1_active_rate_group.html',1,'Svc']]],
-  ['activetest_2104',['ActiveTest',['../class_active_test.html',1,'']]],
-  ['activetextloggercomponentimpl_2105',['ActiveTextLoggerComponentImpl',['../class_svc_1_1_active_text_logger_component_impl.html',1,'Svc']]],
-  ['ampcsevrlogpacket_2106',['AmpcsEvrLogPacket',['../class_fw_1_1_ampcs_evr_log_packet.html',1,'Fw']]],
-  ['ampcssequence_2107',['AMPCSSequence',['../class_svc_1_1_a_m_p_c_s_sequence.html',1,'Svc']]],
-  ['arraytest_2108',['ArrayTest',['../class_array_test.html',1,'']]],
-  ['arraytostringtest_2109',['ArrayToStringTest',['../class_array_to_string_test.html',1,'']]],
-  ['arraytype_2110',['ArrayType',['../struct_fpp_test_1_1_types_1_1_array_type.html',1,'FppTest::Types']]],
-  ['arraytypes_2111',['ArrayTypes',['../struct_fpp_test_1_1_types_1_1_array_types.html',1,'FppTest::Types']]],
-  ['assertfataladaptercomponentimpl_2112',['AssertFatalAdapterComponentImpl',['../class_svc_1_1_assert_fatal_adapter_component_impl.html',1,'Svc']]]
+  ['active_3820',['Active',['../class_fw_1_1_active.html',1,'Fw']]],
+  ['activecomponentbase_3821',['ActiveComponentBase',['../class_fw_1_1_active_component_base.html',1,'Fw']]],
+  ['activecomponentexitserializablebuffer_3822',['ActiveComponentExitSerializableBuffer',['../class_fw_1_1_active_component_exit_serializable_buffer.html',1,'Fw']]],
+  ['activelogger_5fenabled_3823',['ActiveLogger_Enabled',['../class_svc_1_1_active_logger___enabled.html',1,'Svc']]],
+  ['activelogger_5ffilterseverity_3824',['ActiveLogger_FilterSeverity',['../class_svc_1_1_active_logger___filter_severity.html',1,'Svc']]],
+  ['activeloggercomponentbase_3825',['ActiveLoggerComponentBase',['../class_svc_1_1_active_logger_component_base.html',1,'Svc']]],
+  ['activeloggerimpl_3826',['ActiveLoggerImpl',['../class_svc_1_1_active_logger_impl.html',1,'Svc']]],
+  ['activerategroup_3827',['ActiveRateGroup',['../class_svc_1_1_active_rate_group.html',1,'Svc']]],
+  ['activerategroupcomponentbase_3828',['ActiveRateGroupComponentBase',['../class_svc_1_1_active_rate_group_component_base.html',1,'Svc']]],
+  ['activetextlogger_3829',['ActiveTextLogger',['../class_svc_1_1_active_text_logger.html',1,'Svc']]],
+  ['activetextloggercomponent_3830',['ActiveTextLoggerComponent',['../class_active_text_logger_component.html',1,'']]],
+  ['activetextloggercomponentbase_3831',['ActiveTextLoggerComponentBase',['../class_svc_1_1_active_text_logger_component_base.html',1,'Svc']]],
+  ['ampcsevrlogpacket_3832',['AmpcsEvrLogPacket',['../class_fw_1_1_ampcs_evr_log_packet.html',1,'Fw']]],
+  ['ampcssequence_3833',['AMPCSSequence',['../class_svc_1_1_a_m_p_c_s_sequence.html',1,'Svc']]],
+  ['assertfataladaptercomponentbase_3834',['AssertFatalAdapterComponentBase',['../class_svc_1_1_assert_fatal_adapter_component_base.html',1,'Svc']]],
+  ['assertfataladaptercomponentimpl_3835',['AssertFatalAdapterComponentImpl',['../class_svc_1_1_assert_fatal_adapter_component_impl.html',1,'Svc']]],
+  ['asserthook_3836',['AssertHook',['../class_fw_1_1_assert_hook.html',1,'Fw']]]
 ];
