@@ -6,9 +6,10 @@ name: macOS-CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master, devel ]
+    branches: [ devel, release/** ]
   pull_request:
-    branches: [ master, devel, release/v3.0.0 ]
+    # The branches below must be a subset of the branches above
+    branches: [ devel, release/** ]
     paths-ignore:
       - 'docs/**'
       - '**.md'
@@ -19,14 +20,19 @@ on:
 jobs:
   macOS-Framework:
     runs-on: macos-latest
+    timeout-minutes: 30
     steps:
     - name: "Checkout F´ Repository"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        submodules: true
     - uses: ./.github/actions/setup
     - name: F prime CI step
       run: ./ci/tests/Framework.bash
+      env:
+        # Limit to 2 jobs to avoid resource exhaustion (https://github.com/nasa/fprime/issues/2462)
+        JOBS: 2
     # Archive the outputs
     - name: 'Archive Logs'
       uses: actions/upload-artifact@v3
@@ -38,14 +44,18 @@ jobs:
 
   macOS-Ref:
     runs-on: macos-latest
+    timeout-minutes: 30
     steps:
     - name: "Checkout F´ Repository"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        submodules: true
     - uses: ./.github/actions/setup
     - name: F prime CI step
       run: ./ci/tests/Ref.bash
+      env:
+        JOBS: 2
     # Archive the outputs
     - name: 'Archive Logs'
       uses: actions/upload-artifact@v3
@@ -57,16 +67,20 @@ jobs:
 
   macOS-Integration:
     runs-on: macos-latest
+    timeout-minutes: 30
     steps:
     - name: "Checkout F´ Repository"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        submodules: true
     - uses: ./.github/actions/setup
     - name: Install coreutils
       run: brew install coreutils
     - name: F prime CI step
       run: ./ci/tests/30-ints.bash
+      env:
+        JOBS: 2
     # Archive the outputs
     - name: 'Archive Logs'
       uses: actions/upload-artifact@v3

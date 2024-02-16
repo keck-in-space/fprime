@@ -16,6 +16,7 @@
 # the `-D` option there.
 #
 ####
+include_guard()
 # Remap changed settings
 if (DEFINED FPRIME_INSTALL_DEST)
     set(CMAKE_INSTALL_PREFIX ${FPRIME_INSTALL_DEST} CACHE PATH "Install dir" FORCE)
@@ -92,8 +93,8 @@ endif()
 ####
 # `FPRIME_ENABLE_UTIL_TARGETS`:
 #
-# Enables the targets required to run using `fprime-util`.  These include: check, check-leak, coverage, impl, and
-# testimpl targets. This switch defaults to "ON" providing those targets, but may be set to off when running within an
+# Enables the targets required to run using `fprime-util`.  These include: check and refresh_cache.
+# This switch defaults to "ON" providing those targets, but may be set to off when running within an
 # IDE where limiting the number of targets is desirable. Note: unit test targets are still only generated when running
 # with -DBUILD_TESTING=ON.
 #
@@ -261,8 +262,7 @@ endif()
 include(CTest)
 
 ####
-# Locations `FPRIME_FRAMEWORK_PATH`, `FPRIME_PROJECT_ROOT`, `FPRIME_LIBRARY_LOCATIONS`
-# `FPRIME_AC_CONSTANTS_FILE`, and `FPRIME_CONFIG_DIR`:
+# Locations `FPRIME_FRAMEWORK_PATH`, `FPRIME_PROJECT_ROOT`, `FPRIME_LIBRARY_LOCATIONS`, and `FPRIME_CONFIG_DIR`:
 #
 # Note: these settings are supplied by `fprime-util` and need not be provided unless running CMake directly or through
 # any way bypassing that utility (e.g. inside your beloved IDE).
@@ -343,7 +343,12 @@ if (NOT DEFINED FPRIME_CONFIG_DIR)
 endif()
 set(FPRIME_CONFIG_DIR "${FPRIME_CONFIG_DIR}" CACHE PATH "F prime configuration header directory" FORCE)
 
-# Override the AC constants file when specified
-if (NOT DEFINED FPRIME_AC_CONSTANTS_FILE)
-    set(FPRIME_AC_CONSTANTS_FILE "${FPRIME_CONFIG_DIR}/AcConstants.ini" CACHE PATH "F prime AC constants.ini file" FORCE)
+
+# Set FPRIME_TOOLCHAIN_NAME when not set by toolchain directly
+if (NOT DEFINED FPRIME_TOOLCHAIN_NAME)
+    if (DEFINED CMAKE_TOOLCHAIN_FILE)
+        get_filename_component(FPRIME_TOOLCHAIN_NAME "${CMAKE_TOOLCHAIN_FILE}" NAME_WE CACHE)
+    else()
+        set(FPRIME_TOOLCHAIN_NAME "native" CACHE INTERNAL "Name of toolchain used" FORCE)
+    endif()
 endif()

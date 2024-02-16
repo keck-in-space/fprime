@@ -2,9 +2,10 @@ name: "FppTest"
 
 on:
   push:
-    branches: [ master, devel ]
+    branches: [ devel, release/** ]
   pull_request:
-    branches: [ master, devel ]
+    # The branches below must be a subset of the branches above
+    branches: [ devel, release/** ]
     paths-ignore:
       - 'docs/**'
       - '**.md'
@@ -17,9 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout F´ Repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: true
       - name: "Install requirements.txt"
         run: |
           pip3 install -r ./requirements.txt
@@ -39,3 +41,10 @@ jobs:
         run: |
           fprime-util check
         shell: bash
+      - name: "Archive Logs"
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: FppTest-Logs
+          path: ./FppTest/build-fprime-automatic-native-ut/Testing/Temporary/*.log
+          retention-days: 5

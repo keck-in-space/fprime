@@ -21,7 +21,6 @@
 cmake_minimum_required(VERSION 3.13)
 cmake_policy(SET CMP0048 NEW)
 project(Ref VERSION 1.0.0 LANGUAGES C CXX)
-
 ##
 # Section 2: F prime Core
 #
@@ -31,7 +30,7 @@ project(Ref VERSION 1.0.0 LANGUAGES C CXX)
 ##
 include("${CMAKE_CURRENT_LIST_DIR}/../cmake/FPrime.cmake")
 # NOTE: register custom targets between these two lines
-include("${CMAKE_CURRENT_LIST_DIR}/../cmake/FPrime-Code.cmake")
+fprime_setup_included_code()
 ##
 # Section 3: Components and Topology
 #
@@ -57,7 +56,8 @@ register_fprime_deployment()
 target_compile_options("${PROJECT_NAME}" PUBLIC -Wall)
 target_compile_options("${PROJECT_NAME}" PUBLIC -Wextra)
 target_compile_options("${PROJECT_NAME}" PUBLIC -Werror)
-#target_compile_options("${PROJECT_NAME}" PUBLIC -Wshadow)
+target_compile_options("${PROJECT_NAME}" PUBLIC -pedantic)
+target_compile_options("${PROJECT_NAME}" PUBLIC -Wshadow)
 target_compile_options("${PROJECT_NAME}" PUBLIC -Wconversion)
 target_compile_options("${PROJECT_NAME}" PUBLIC -Wsign-conversion)
 target_compile_options("${PROJECT_NAME}" PUBLIC -Wformat-security)

@@ -22,8 +22,8 @@
 
 //#include <cstdlib>
 //#include <cstdio>
-//#define DEBUG_PRINT(x,...) printf(x,##__VA_ARGS__); fflush(stdout)
-#define DEBUG_PRINT(x, ...)
+//#define DEBUG_PRINT(...) printf(##__VA_ARGS__); fflush(stdout)
+#define DEBUG_PRINT(...)
 
 namespace Drv {
 
@@ -122,7 +122,7 @@ bool LinuxUartDriver::open(const char* const device,
     if (fc == HW_FLOW) {
         struct termios t;
 
-        int stat = tcgetattr(fd, &t);
+        stat = tcgetattr(fd, &t);
         if (-1 == stat) {
             DEBUG_PRINT("tcgetattr UART fd %d failed\n", fd);
             close(fd);

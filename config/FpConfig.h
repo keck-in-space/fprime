@@ -68,6 +68,12 @@ typedef U32 FwPrmIdType;
 typedef U16 FwTlmPacketizeIdType;
 #define PRI_FwTlmPacketizeIdType PRIu16
 
+typedef U32 FwDpIdType;
+#define PRI_FwDpIdType PRIu32
+
+typedef U32 FwDpPriorityType;
+#define PRI_FwDpPriorityType PRIu32
+
 // Boolean values for serialization
 #ifndef FW_SERIALIZE_TRUE_VALUE
 #define FW_SERIALIZE_TRUE_VALUE (0xFF)  //!< Value encoded during serialization for boolean true
@@ -154,10 +160,12 @@ typedef U16 FwTlmPacketizeIdType;
 #endif
 
 // Set assertion form. Options:
-//   1. FW_NO_ASSERT: assertions are compiled out
+//   1. FW_NO_ASSERT: assertions are compiled out, side effects are kept
 //   2. FW_FILEID_ASSERT: asserts report a file CRC and line number
 //   3. FW_FILENAME_ASSERT: asserts report a file path (__FILE__) and line number
 //   4. FW_RELATIVE_PATH_ASSERT: asserts report a relative path within F´ or F´ library and line number
+//
+// Note: users who want alternate asserts should set assert level to FW_NO_ASSERT and define FW_ASSERT in this header
 #define FW_ASSERT_DFL_MSG_LEN 256  //!< Maximum assert message length when using the default assert handler
 #ifndef FW_ASSERT_LEVEL
 #define FW_ASSERT_LEVEL FW_FILENAME_ASSERT  //!< Defines the type of assert used

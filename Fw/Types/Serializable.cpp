@@ -478,7 +478,13 @@ namespace Fw {
     }
 
     SerializeStatus SerializeBufferBase::deserialize(void*& val) {
-        return this->deserialize(reinterpret_cast<POINTER_CAST&>(val));
+        // Deserialize as pointer cast, then convert to void*
+        PlatformPointerCastType pointerCastVal = 0;
+        const SerializeStatus stat = this->deserialize(pointerCastVal);
+        if (stat == FW_SERIALIZE_OK) {
+            val = reinterpret_cast<void*>(pointerCastVal);
+        }
+        return stat;
     }
 
     SerializeStatus SerializeBufferBase::deserialize(F32 &val) {
@@ -575,7 +581,23 @@ namespace Fw {
         this->m_deserLoc = 0;
     }
 
-    SerializeStatus SerializeBufferBase::deserializeSkip(NATIVE_UINT_TYPE numBytesToSkip)
+    SerializeStatus SerializeBufferBase::serializeSkip(FwSizeType numBytesToSkip)
+    {
+        Fw::SerializeStatus status = FW_SERIALIZE_OK;
+        // compute new deser loc
+        const FwSizeType newSerLoc = this->m_serLoc + numBytesToSkip;
+        // check for room
+        if (newSerLoc <= this->getBuffCapacity()) {
+            // update deser loc
+            this->m_serLoc = newSerLoc;
+        }
+        else {
+            status = FW_SERIALIZE_NO_ROOM_LEFT;
+        }
+        return status;
+    }
+
+    SerializeStatus SerializeBufferBase::deserializeSkip(FwSizeType numBytesToSkip)
     {
         // check for room
         if (this->getBuffLength() == this->m_deserLoc) {
@@ -586,6 +608,19 @@ namespace Fw {
         // update location in buffer to skip the value
         this->m_deserLoc += numBytesToSkip;
         return FW_SERIALIZE_OK;
+    }
+
+    SerializeStatus SerializeBufferBase::moveSerToOffset(FwSizeType offset) {
+        // Reset serialization
+        this->resetSer();
+        // Advance to offset
+        return this->serializeSkip(offset);
+    }
+    SerializeStatus SerializeBufferBase::moveDeserToOffset(FwSizeType offset) {
+        // Reset deserialization
+        this->resetDeser();
+        // Advance to offset
+        return this->deserializeSkip(offset);
     }
 
     NATIVE_UINT_TYPE SerializeBufferBase::getBuffLength() const {

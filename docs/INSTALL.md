@@ -29,6 +29,8 @@ Requirements:
 4. CLang or GNU C and C++ compilers (e.g. gcc and g++)
 5. [Python 3.8+](https://www.python.org/downloads/), virtual environments, and PIP
 
+> Latest versions of PIP are strongly recommended, as this will install native packages with improved performance and no dependency on Java. See [Recommended PIP Versions](#recommended-pip-versions)
+
 > Ubuntu and Debian users should see notes on [Python installation](#ubuntu-debian-java-and-python-pip)
 
 > macOS users must ensure the [CMake command line utility is on their path](#mac-os-x-and-cmake-command-not-found)
@@ -36,47 +38,45 @@ Requirements:
 > Other OS-specific notes are in the [Troubleshooting](#Troubleshooting) section below.
 
 
+## Creating a new F´ Project
 
-## Setting Up the Development Environment
+The ecosystem of tools supporting F´ is installed as Python packages available via PIP. These packages are installed in a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/) by the F´ Bootstrap tool. It is recommended to have one virtual environment per project.
 
-The ecosystem of tools supporting F´ is installed as python packages available via PIP. To setup F´ tools, you should create a [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/), activate it, and install the latest version of fprime-tools.
+### 1. Install the F´ Bootstrap tool
 
-1. Create the virtual environment:
-
-```bash
-python3 -m venv fprime-venv
+The F´ Bootstrap tool is responsible for creating a new F´ project and installing the Python dependencies within the project's virtual environment. Install the fprime-bootstrap tool with:
 ```
-> You should create a new virtual environment for each new F´ project. The name `fprime-venv` may be changed.
-
-2. Activate the virtual environment
-
-```bash
-. fprime-venv/bin/activate
+pip install fprime-bootstrap
 ```
-> Remember to activate the virtual environment whenever you work with this F´  project.
 
-2. Install F´  tools
-```
-pip install -U fprime-tools
-```
 > Some macOS users see an SSL error. [Correct the SSL error](#ssl-error-with-python-37-on-macos) and rerun the above command.
 
-## Creating a New Project
+### 2. Create a new project
 
-The entrypoint to developing with F´ is creating a new project. This will clone the F´ repository and install the full tool suite of the specified version for working with the selected version of F´.
+The entrypoint to developing with F´ is creating a new project. This will clone the F´ repository and install the full tool suite of the specified version for working with the selected version of F´. To create a new project, run:
 ```
-fprime-util new --project
+fprime-bootstrap project
 ```
 
 This command will ask for some input. Sample responses are below:
 ```
-project_name [MyProject]: MyProject
-fprime_branch_or_tag [devel]: devel
-Select install_venv:
-1 - yes
-2 - no
-Choose from 1, 2 [1]: 1
+  [1/1] Project name (MyProject): MyProject
 ```
+
+This commands perform the following actions:
+- Create a new git repository with the standard F´ project structure
+- Create a new virtual environment within the project and install dependencies
+
+
+### 3. Activate the virtual environment
+
+Once the project is created, activate the virtual environment to use the F´ tool suite.
+
+```
+cd MyProject
+. fprime-venv/bin/activate
+```
+> Always remember to activate the virtual environment whenever you work with this F´  project.
 
 Next steps: [HelloWorld Tutorial](https://fprime-community.github.io/fprime-tutorial-hello-world/)
 
@@ -103,9 +103,7 @@ This section will add some known hints to trouble-shooting with the installation
 If the user is using a virtual environment and receives the 'command not found', the problem is likely caused by the environment not being sourced in a new terminal. Make sure to source the environment before running:
 
 ```
-. /path/to/venv/bin/activate
-e.g.
-. $HOME/fprime-venv/bin/activate
+. <path/to/project>/fprime-venv/bin/activate
 ```
 
 If installing without a virtual environment, PIP occasionally uses `$HOME/.local/bin` as a place to install user tools. Users running without virtual environments should add this directory to the path.
@@ -162,3 +160,16 @@ cd /Applications/Python\ 3.X/
 ```
 
 After running above command, re-try installing `fprime-tools`.
+
+
+### Recommended PIP Versions
+
+Some of the F´ Python packages are built in a way that it is recommended to install them with modern versions of PIP. Systems not recommended or pip versions less than recommended will require Java and run slower versions of FPP tools. The recommended versions are described below:
+
+| System | Recommended `pip` version |
+|---|---|
+| macOS (10.9+) | >= 21.0.1 |
+| x86_64 | >= 19.3 |
+| aarch64| >= 20.3 |
+
+

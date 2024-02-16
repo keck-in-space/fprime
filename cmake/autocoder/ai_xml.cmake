@@ -76,7 +76,6 @@ macro(__ai_info XML_PATH MODULE_NAME)
         # Next parse the output matching one line at a time
         read_from_lines("${AI_OUTPUT}" XML_TYPE_FROM_FILE MODULE_DEPENDENCIES FILE_DEPENDENCIES)
     endif()
-    list(APPEND FILE_DEPENDENCIES "${FPRIME_AC_CONSTANTS_FILE}")
 endmacro(__ai_info)
 
 ####
@@ -119,4 +118,5 @@ function(ai_xml_setup_autocode AC_INPUT_FILE)
     endif()
     set(AUTOCODER_GENERATED "${GENERATED_FILES}" PARENT_SCOPE)
     set(AUTOCODER_DEPENDENCIES "${MODULE_DEPENDENCIES}" PARENT_SCOPE)
+    set(AUTOCODER_INCLUDES "${FILE_DEPENDENCIES}" PARENT_SCOPE)
 endfunction(ai_xml_setup_autocode)

@@ -217,6 +217,7 @@ dawbarton
 DDDTHH
 ddl
 ddmm
+dealloc
 Debian
 deconstructor
 Deerin
@@ -265,6 +266,8 @@ doxyrules
 doxysearch
 Doxywizard
 dpi
+DPMANAGER
+DPWRITER
 DRAINBUFFERS
 drv
 dsdl
@@ -285,6 +288,7 @@ EGB
 EHAs
 elist
 ELOG
+Elts
 emoji
 endcode
 endcond
@@ -336,6 +340,7 @@ fileopen
 FILESTUBS
 fio
 Firefox
+FLDP
 flist
 FNDELAY
 fns
@@ -388,7 +393,9 @@ getquaternion
 gettime
 gettimeofday
 getty
+getu
 ghprb
+gitmodules
 gmock
 Gnc
 Gnd
@@ -560,6 +567,7 @@ MACROFILE
 maincpp
 makefiles
 makeindex
+MAKEFLAGS
 MAKEVAR
 MALLOCALLOCATOR
 mallocator
@@ -782,6 +790,7 @@ ptf
 pthread
 ptmcg
 pton
+ptrt
 puml
 punc
 pushd
